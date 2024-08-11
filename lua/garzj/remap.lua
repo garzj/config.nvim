@@ -29,10 +29,6 @@ map("n", "<leader>fx", function()
 	end
 end, { silent = true })
 
-map("n", "<leader>fc", "<cmd>bd<cr>")
-map("n", "<leader>ft", "<cmd>e#<cr>")
-map("n", "<leader>fs", "<cmd>noa w<cr>")
-
 map("i", "<C-BS>", "<C-W>")
 map("i", "<C-H>", "<C-W>")
 
