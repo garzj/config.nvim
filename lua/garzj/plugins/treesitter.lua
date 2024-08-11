@@ -48,7 +48,7 @@ return {
 						},
 						selection_modes = {
 							["@function.inner"] = "v",
-							["@function.outer"] = "V",
+							["@function.outer"] = "v",
 							["@class.inner"] = "v",
 							["@class.outer"] = "V",
 						},
