@@ -7,6 +7,10 @@ return {
 		autosave = {
 			current = true,
 		},
+		plugins = {
+			delete_hidden_buffers = false,
+			delete_buffers = true,
+		},
 	},
 	init = function()
 		require("telescope").load_extension("possession")
