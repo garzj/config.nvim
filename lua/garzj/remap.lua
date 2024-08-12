@@ -21,9 +21,9 @@ map("n", "<leader>Y", '"+Y')
 map("n", "<leader>D", '"+D')
 
 map("n", "<leader>fx", function()
-	if confirm("Make this file executable") then
-		cmd("<cmd>!chmod +x %<CR>")
-	end
+  if confirm("Make this file executable") then
+    cmd("<cmd>!chmod +x %<CR>")
+  end
 end, { silent = true })
 
 map("i", "<C-BS>", "<C-W>")
