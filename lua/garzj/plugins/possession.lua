@@ -16,7 +16,7 @@ return {
     require("telescope").load_extension("possession")
   end,
   keys = {
-    { "<leader>ss", "<cmd>SessionSave<cr>", mode = "n" },
+    { "<leader>ss", "<cmd>PossessionSaveCwd<cr>", mode = "n" },
     { "<leader>sl", "<cmd>Telescope possession list<cr>", mode = "n" },
   },
 }
