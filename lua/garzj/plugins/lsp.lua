@@ -91,6 +91,9 @@ return {
           "clangd",
           "bashls",
           "omnisharp",
+          "dockerls",
+          "docker_compose_language_service",
+          "yamlls",
         },
         handlers = {
           function(server_name)
