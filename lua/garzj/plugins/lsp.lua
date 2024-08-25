@@ -82,6 +82,8 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
+      lsp_zero.setup_servers({ "dartls", force = true })
+
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
