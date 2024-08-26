@@ -36,3 +36,14 @@ map("n", "]d", vim.diagnostic.goto_next)
 map("n", "<leader>tn", function()
   os.execute("alacritty & disown")
 end, { silent = true })
+
+-- indent empty lines when A
+map("n", "A", function()
+  local line = vim.api.nvim_get_current_line()
+
+  if #line == 0 then
+    return '"_cc'
+  else
+    return "A"
+  end
+end, { expr = true, noremap = true })
