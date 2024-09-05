@@ -40,6 +40,8 @@ return {
         lua = { "stylua" },
         rust = { "rustfmt" },
         javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        tsx = { "prettierd" },
         c = { "clang-format" },
         python = { "isort", "black" },
         toml = { "taplo" },
