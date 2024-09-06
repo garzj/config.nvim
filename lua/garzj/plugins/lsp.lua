@@ -96,6 +96,8 @@ return {
           "dockerls",
           "docker_compose_language_service",
           "yamlls",
+          "html",
+          "cssls",
         },
         handlers = {
           function(server_name)

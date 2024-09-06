@@ -49,6 +49,9 @@ return {
         zsh = { "shfmt" },
         markdown = { "prettierd" },
         csharp = { "csharpier" },
+        html = { "prettierd" },
+        css = { "prettierd" },
+        scss = { "prettierd" },
       },
       default_format_opts = {
         lsp_format = "fallback",
