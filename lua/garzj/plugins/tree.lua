@@ -3,6 +3,7 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   event = "VeryLazy",
   opts = {
+    update_focused_file = { enable = true },
     filesystem_watchers = { enable = true },
     disable_netrw = true,
     sync_root_with_cwd = true,
