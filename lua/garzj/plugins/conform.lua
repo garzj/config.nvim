@@ -40,8 +40,9 @@ return {
         lua = { "stylua" },
         rust = { "rustfmt" },
         javascript = { "prettierd" },
+        javascriptreact = { "prettierd" },
         typescript = { "prettierd" },
-        tsx = { "prettierd" },
+        typescriptreact = { "prettierd" },
         c = { "clang-format" },
         python = { "isort", "black" },
         toml = { "taplo" },
@@ -52,6 +53,7 @@ return {
         html = { "prettierd" },
         css = { "prettierd" },
         scss = { "prettierd" },
+        json = { "prettierd" },
       },
       default_format_opts = {
         lsp_format = "fallback",

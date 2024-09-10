@@ -22,7 +22,7 @@ map("n", "<leader>D", '"+D')
 
 map("n", "<leader>fx", function()
   if confirm("Make this file executable") then
-    cmd("<cmd>!chmod +x %<cr>")
+    vim.api.nvim_command("!chmod +x %")
   end
 end, { silent = true })
 
@@ -35,6 +35,11 @@ map("n", "]d", vim.diagnostic.goto_next)
 
 map("n", "<leader>tn", function()
   os.execute("alacritty & disown")
+end, { silent = true })
+map("n", "<leader>tf", function()
+  local file_path = vim.api.nvim_buf_get_name(0)
+  local dir = vim.fn.fnamemodify(file_path, ":p:h")
+  os.execute("alacritty --working-directory " .. dir .. " & disown")
 end, { silent = true })
 
 -- indent empty lines when A

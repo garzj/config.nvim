@@ -88,7 +88,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "rust_analyzer",
-          "tsserver",
+          "ts_ls",
           "eslint",
           "clangd",
           "bashls",
@@ -101,9 +101,6 @@ return {
         },
         handlers = {
           function(server_name)
-            if server_name == "tsserver" then
-              server_name = "ts_ls"
-            end
             require("lspconfig")[server_name].setup({})
           end,
         },
