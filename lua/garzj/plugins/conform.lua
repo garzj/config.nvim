@@ -1,5 +1,12 @@
 local confirm = require("garzj.dialogue").confirm
 
+local prettier_config = vim.fn.expand("$HOME/.config/.prettierrc.json")
+if vim.env.PRETTIERD_DEFAULT_CONFIG == nil and vim.fn.filereadable(prettier_config) == 1 then
+  vim.env.PRETTIERD_DEFAULT_CONFIG = prettier_config
+else
+  vim.env.PRETTIERD_DEFAULT_CONFIG = nil
+end
+
 return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
