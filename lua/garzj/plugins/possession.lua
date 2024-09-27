@@ -17,6 +17,7 @@ return {
   end,
   keys = {
     { "<leader>ss", "<cmd>PossessionSaveCwd<cr>", mode = "n" },
+    { "<leader>sn", "<cmd>PossessionSave<cr>", mode = "n" },
     { "<leader>sd", "<cmd>PossessionDelete<cr>", mode = "n" },
     { "<leader>sl", "<cmd>Telescope possession list<cr>", mode = "n" },
   },
