@@ -21,5 +21,6 @@ return {
     vim.keymap.set("n", "<leader>ct", "<cmd>CloakToggle<cr>")
     vim.keymap.set("n", "<leader>ce", "<cmd>CloakEnable<cr>")
     vim.keymap.set("n", "<leader>cd", "<cmd>CloakDisable<cr>")
+    vim.keymap.set("n", "<leader>cl", "<cmd>CloakPreviewLine<cr>")
   end,
 }
