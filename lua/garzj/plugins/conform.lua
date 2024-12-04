@@ -17,6 +17,7 @@ return {
         "stylua",
         -- "rustfmt", -- install via rustup
         "prettierd",
+        "prettier",
         "clang-format",
         "isort",
         "black",
@@ -61,6 +62,8 @@ return {
         css = { "prettierd" },
         scss = { "prettierd" },
         json = { "prettierd" },
+        jsonc = { "prettierd" },
+        astro = { "prettier" },
       },
       default_format_opts = {
         lsp_format = "fallback",

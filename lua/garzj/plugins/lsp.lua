@@ -109,6 +109,8 @@ return {
           "yamlls",
           "html",
           "cssls",
+          "jdtls",
+          "astro",
         },
         handlers = {
           function(server_name)
