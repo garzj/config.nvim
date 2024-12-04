@@ -36,11 +36,12 @@ return {
     cmd = { "ConformInfo" },
     keys = {
       {
-        "<leader>ff",
+        "<leader>f=",
         function()
           require("conform").format({ async = true })
         end,
         mode = "n",
+        desc = "format file with conform",
       },
     },
     opts = {
