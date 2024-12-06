@@ -5,7 +5,7 @@ g.editorconfig = true
 g.markdown_recommended_style = 0
 
 g.mapleader = " "
-g.maplocalleader = " "
+g.maplocalleader = "\\"
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
