@@ -16,7 +16,7 @@ map("n", "<leader>P", '"+P')
 map("x", "P", '"_dp')
 map("x", "<leader>P", '"_d"+p')
 map({ "n", "x" }, "<leader>y", '"+y')
-map({ "n", "x" }, "<leader>d", '"+y')
+map({ "n", "x" }, "<leader>d", '"+d')
 map("n", "<leader>Y", '"+Y')
 map("n", "<leader>D", '"+D')
 
