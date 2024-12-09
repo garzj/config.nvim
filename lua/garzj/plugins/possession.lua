@@ -3,6 +3,7 @@ return {
   lazy = false,
   requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   opts = {
+    silent = true,
     autoload = "last_cwd",
     autosave = {
       current = true,
