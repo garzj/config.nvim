@@ -24,6 +24,7 @@ return {
         "taplo",
         "shfmt",
         "csharpier",
+        "lemminx",
       },
       auto_update = true,
       run_on_start = true,
@@ -65,6 +66,7 @@ return {
         json = { "prettierd" },
         jsonc = { "prettierd" },
         astro = { "prettier" },
+        xml = { "lemminx" },
       },
       default_format_opts = {
         lsp_format = "fallback",
