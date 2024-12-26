@@ -1,3 +1,5 @@
+require("garzj.remaps.build")
+
 local confirm = require("garzj.dialogue").confirm
 
 local map = vim.keymap.set

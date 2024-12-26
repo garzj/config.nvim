@@ -111,10 +111,29 @@ return {
           "cssls",
           "jdtls",
           "astro",
+          "texlab",
+          "pyright",
         },
         handlers = {
           function(server_name)
-            require("lspconfig")[server_name].setup({})
+            local opts = {}
+            if server_name == "texlab" then
+              opts = {
+                settings = {
+                  texlab = {
+                    build = {
+                      onSave = true,
+                      forwardSearchAfter = true,
+                    },
+                    forwardSearch = {
+                      executable = "evince-synctex",
+                      args = { "-f", "%l", "%p", '"texlab -i %f -l %l"' },
+                    },
+                  },
+                },
+              }
+            end
+            require("lspconfig")[server_name].setup(opts)
           end,
         },
       })
