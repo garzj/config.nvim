@@ -9,9 +9,6 @@ map("i", "<C-c>", "<Esc>")
 map("x", "J", ":m '>+1<CR>gv=gv")
 map("x", "K", ":m '>-2<CR>gv=gv")
 
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-
 -- copy pasta (system clip and replace / delete into void buf)
 map({ "n", "x" }, "<leader>p", '"+p')
 map({ "n", "x" }, "<leader>P", '"+P')
