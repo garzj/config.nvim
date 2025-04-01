@@ -28,8 +28,8 @@ map("n", "<leader>fn", function()
   os.execute(cmd)
 end, { silent = true, desc = "open nautilus in file dir" })
 
-map("i", "<C-BS>", "<C-W>")
-map("i", "<C-H>", "<C-W>")
+map({ "i", "t" }, "<C-BS>", "<C-W>")
+map({ "i", "t" }, "<C-H>", "<C-W>")
 
 map("n", "gh", vim.diagnostic.open_float)
 map("n", "[d", vim.diagnostic.goto_prev)
