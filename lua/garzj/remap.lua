@@ -54,3 +54,13 @@ map("n", "A", function()
     return "A"
   end
 end, { expr = true, noremap = true })
+
+-- buffers
+map("n", "<leader>x", "<cmd>bdelete<cr>")
+map("n", "<leader>bq", "<cmd>bdelete<cr>")
+map("n", "<leader>bQ", "<cmd>bdelete!<cr>")
+map("n", "<leader>bs", "<cmd>noa w<cr>")
+
+-- tabs
+map("n", "<leader>t,", "<cmd>tabprevious<cr>")
+map("n", "<leader>t.", "<cmd>tabnext<cr>")
