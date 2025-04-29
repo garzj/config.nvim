@@ -18,5 +18,7 @@ return {
       builtin.find_files({ hidden = true, no_ignore = true })
     end, { desc = "find all files" })
     vim.keymap.set("n", "<C-p>", builtin.find_files)
+    vim.keymap.set("n", "<C-.>", builtin.buffers)
+    vim.keymap.set("n", "<C-,>", builtin.resume)
   end,
 }
