@@ -11,12 +11,6 @@ end
 
 return {
   {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v4.x",
-    lazy = true,
-    config = false,
-  },
-  {
     "williamboman/mason.nvim",
     lazy = false,
     config = true,
@@ -66,12 +60,9 @@ return {
       { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-      local lsp_zero = require("lsp-zero")
-
-      local lsp_attach = function(client, bufnr)
-        local opts = { buffer = bufnr }
-
+      local on_attach = function(client, bufnr)
         local map = vim.keymap.set
+        local opts = { buffer = bufnr }
 
         map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
         map("n", "gd", function()
@@ -93,61 +84,81 @@ return {
         map("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
       end
 
-      lsp_zero.extend_lspconfig({
-        sign_text = {
-          error = "✘",
-          warn = "▲",
-          hint = "⚑",
-          info = "»",
+      local severity = vim.diagnostic.severity
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [severity.ERROR] = "✘",
+            [severity.WARN] = "▲",
+            [severity.HINT] = "⚑",
+            [severity.INFO] = "»",
+          },
         },
-        lsp_attach = lsp_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
-      lsp_zero.setup_servers({ "dartls", force = true })
+      local servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          },
+        },
+        rust_analyzer = {},
+        ts_ls = {},
+        eslint = {},
+        clangd = {},
+        bashls = {},
+        omnisharp = {},
+        dockerls = {},
+        docker_compose_language_service = {},
+        yamlls = {},
+        html = {},
+        cssls = {},
+        jdtls = {},
+        astro = {},
+        texlab = {
+          settings = {
+            texlab = {
+              build = {
+                onSave = false,
+                forwardSearchAfter = true,
+              },
+              forwardSearch = {
+                executable = "evince-synctex",
+                args = { "-f", "%l", "%p", '"texlab -i %f -l %l"' },
+              },
+            },
+          },
+        },
+        pyright = {},
+        intelephense = {
+          init_options = {
+            globalStoragePath = os.getenv("HOME") .. "/.local/share/intelephense",
+          },
+        },
+      }
 
+      require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "rust_analyzer",
-          "ts_ls",
-          "eslint",
-          "clangd",
-          "bashls",
-          "omnisharp",
-          "dockerls",
-          "docker_compose_language_service",
-          "yamlls",
-          "html",
-          "cssls",
-          "jdtls",
-          "astro",
-          "texlab",
-          "pyright",
-        },
-        handlers = {
-          function(server_name)
-            local opts = {}
-            if server_name == "texlab" then
-              opts = {
-                settings = {
-                  texlab = {
-                    build = {
-                      onSave = true,
-                      forwardSearchAfter = true,
-                    },
-                    forwardSearch = {
-                      executable = "evince-synctex",
-                      args = { "-f", "%l", "%p", '"texlab -i %f -l %l"' },
-                    },
-                  },
-                },
-              }
-            end
-            require("lspconfig")[server_name].setup(opts)
-          end,
-        },
+        automatic_enable = false,
+        ensure_installed = vim.tbl_keys(servers),
       })
+
+      local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      for server_name, opts in pairs(servers) do
+        local default_opts = {
+          capabilities = capabilities,
+          on_attach = on_attach,
+        }
+        for k, v in pairs(default_opts) do
+          opts[k] = v
+        end
+        lspconfig[server_name].setup(opts)
+      end
     end,
   },
 }
