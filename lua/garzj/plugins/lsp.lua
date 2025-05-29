@@ -141,24 +141,24 @@ return {
         },
       }
 
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        automatic_enable = false,
-        ensure_installed = vim.tbl_keys(servers),
-      })
-
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      for server_name, opts in pairs(servers) do
+      for server_name, config in pairs(servers) do
         local default_opts = {
           capabilities = capabilities,
           on_attach = on_attach,
         }
+        local opts = servers[server_name]
         for k, v in pairs(default_opts) do
           opts[k] = v
         end
-        lspconfig[server_name].setup(opts)
+        vim.lsp.config(server_name, config)
       end
+
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        automatic_enable = true,
+        ensure_installed = vim.tbl_keys(servers),
+      })
     end,
   },
 }
