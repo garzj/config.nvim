@@ -16,6 +16,7 @@ return {
           "c",
           "html",
           "css",
+          "php",
         },
 
         auto_install = true,
@@ -29,6 +30,10 @@ return {
               return true
             end
           end,
+        },
+
+        indent = {
+          enable = { "php" },
         },
       })
     end,
