@@ -25,6 +25,7 @@ return {
         "shfmt",
         "csharpier",
         "lemminx",
+        "php-cs-fixer",
       },
       auto_update = true,
       run_on_start = true,
@@ -67,6 +68,7 @@ return {
         jsonc = { "prettierd" },
         astro = { "prettierd" },
         xml = { "lemminx" },
+        php = { "php" },
       },
       default_format_opts = {
         lsp_format = "fallback",
@@ -74,6 +76,20 @@ return {
       format_on_save = {
         timeout_ms = 1000,
         lsp_format = "fallback",
+      },
+      formatters = {
+        php = {
+          command = "php-cs-fixer",
+          args = {
+            "fix",
+            "--config=" .. os.getenv("HOME") .. "/.config/php-cs-fixer.php",
+            "$FILENAME",
+          },
+          stdin = false,
+          env = {
+            PHP_CS_FIXER_IGNORE_ENV = "1",
+          },
+        },
       },
     },
     init = function()
