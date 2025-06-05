@@ -26,6 +26,7 @@ return {
         "csharpier",
         "lemminx",
         "php-cs-fixer",
+        "joker",
       },
       auto_update = true,
       run_on_start = true,
@@ -69,6 +70,7 @@ return {
         astro = { "prettierd" },
         xml = { "lemminx" },
         php = { "php" },
+        smt2 = { "joker" },
       },
       default_format_opts = {
         lsp_format = "fallback",
