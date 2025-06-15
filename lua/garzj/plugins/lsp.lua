@@ -139,6 +139,7 @@ return {
             globalStoragePath = os.getenv("HOME") .. "/.local/share/intelephense",
           },
         },
+        gopls = {},
       }
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
