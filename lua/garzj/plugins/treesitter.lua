@@ -17,6 +17,7 @@ return {
           "html",
           "css",
           "php",
+          "astro",
         },
 
         auto_install = true,
