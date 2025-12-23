@@ -4,4 +4,6 @@ require("garzj.mouse")
 require("garzj.filetypes")
 require("garzj.autocmds")
 require("garzj.diagnostics")
-require("garzj.lazy")
+if vim.g.vscode == nil then
+  require("garzj.lazy")
+end
