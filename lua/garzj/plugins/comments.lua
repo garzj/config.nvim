@@ -20,6 +20,7 @@ return {
 
       local ft = require("Comment.ft")
       ft.set("tptp", { "%%s", "/*%s*/" })
+      ft.set("plantuml", { "' %s" })
     end,
   },
 }

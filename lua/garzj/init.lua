@@ -1,6 +1,7 @@
 require("garzj.opt")
 require("garzj.remap")
 require("garzj.mouse")
+require("garzj.filetypes")
 require("garzj.autocmds")
 require("garzj.diagnostics")
 require("garzj.lazy")
