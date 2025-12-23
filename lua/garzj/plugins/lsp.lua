@@ -166,7 +166,9 @@ return {
       require("mason").setup()
       require("mason-lspconfig").setup({
         automatic_enable = true,
-        ensure_installed = vim.tbl_keys(servers),
+        ensure_installed = vim.tbl_filter(function(s)
+          return s ~= "jdtls"
+        end, vim.tbl_keys(servers)),
       })
     end,
   },
