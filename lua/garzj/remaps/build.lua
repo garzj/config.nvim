@@ -32,6 +32,10 @@ map("n", "<leader>ba", function()
   end
 
   print(ft_autobuild .. ": " .. active_state)
+
+  if autobuild_by_ft[ft] then
+    buildDoc()
+  end
 end)
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
