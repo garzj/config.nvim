@@ -18,7 +18,6 @@ require("lazy").setup({
   spec = {
     { import = "garzj.plugins" },
   },
-  -- install = { colorscheme = { "habamax" } },
   checker = { enabled = false, notify = false },
   change_detection = { notify = false },
 })
