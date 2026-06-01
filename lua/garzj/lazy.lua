@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    { import = "garzj.plugins" },
+    { import = vim.g.vscode == nil and "garzj.plugins" or "garzj.vscplug" },
   },
   checker = { enabled = false, notify = false },
   change_detection = { notify = false },
