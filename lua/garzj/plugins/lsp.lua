@@ -9,6 +9,12 @@ for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) d
   end
 end
 
+vim.filetype.add({
+  extension = {
+    essl = "glsl",
+  },
+})
+
 return {
   {
     "williamboman/mason.nvim",
@@ -141,6 +147,7 @@ return {
         },
         gopls = {},
         air = {},
+        r_language_server = {},
       }
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
