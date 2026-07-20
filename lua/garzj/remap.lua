@@ -60,6 +60,14 @@ map("n", "<leader>x", "<cmd>bdelete<cr>")
 map("n", "<leader>bq", "<cmd>bdelete<cr>")
 map("n", "<leader>bQ", "<cmd>bdelete!<cr>")
 map("n", "<leader>bs", "<cmd>noa w<cr>")
+map("n", "<leader>bo", function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= current and vim.bo[buf].buflisted then
+      vim.api.nvim_buf_delete(buf, {})
+    end
+  end
+end)
 
 -- tabs
 map("n", "<leader>t,", "<cmd>tabprevious<cr>")
